@@ -1,0 +1,34 @@
+:host
+	--var: none
+	--width: 300px
+	--height: 150px
+
+.modaler-cont
+	width: 100vw
+	height: 100vh
+	position: fixed
+	top: 0
+	left: 0
+	align-items: center
+	justify-content: center
+	display: none
+	background-color: rgba(0,0,0,.6)
+ 
+.modaler-cont.active
+	display: flex
+ 
+.modaler-inner
+	position: relative
+	background-color: #fff
+	padding: 20px
+	border-radius: 5px
+	box-shadow: 0 0 40px rgba(56, 71, 109, 0.29)
+ 
+.modaler-close
+	font-family: inherit
+	font-weight: 700
+	position: absolute
+	top: 10px
+	right: 10px
+	cursor: pointer
+ 

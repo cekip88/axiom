@@ -1,0 +1,561 @@
+%bdrs
+	border-radius: 4px
+.section
+	+w($mobile)
+	margin: auto
+
+
+.ui
+	background-color: #525466
+.stroke
+	stroke: #4684E2
+.fill
+	fill: #4684E2
+
+
+main
+	padding-top: 80px
+
+.head
+	@extend %tr
+	width: 100%
+	height: 80px
+	background-color: rgb($white)
+	overflow: hidden
+	font-family: $f_bold
+	position: absolute
+	top: 0
+	z-index: 1000
+	&.active
+		height: 100vh
+	&-section
+		@extend %dfi
+		@extend %dfa
+		@extend %fw
+		padding: 20px 0
+		position: relative
+	&-logo
+		+wh(100px,40px)
+		&-svg
+			+wh(100%)
+	&-burger
+		@extend %dfi
+		@extend %fdc
+		+wh(30px,21px)
+		.line
+			@extend %tr
+			height: 3px
+			flex: 0 0 3px
+			background-color: rgb($gray)
+			&:nth-child(1)
+				width: 100%
+			&:nth-child(2)
+				width: 50%
+			&:nth-child(3)
+				width: 75%
+		&.active
+			.line
+				&:nth-child(2)
+					transform: translateX(100%)
+				&:nth-child(3)
+					transform: translateX(calc(100% / 3))
+	&-nav
+		@extend %dfi
+		@extend %fdc
+		width: 100%
+		align-items: flex-start
+		position: absolute
+		top: 50vh
+		transform: translateY(-100%)
+	&-link
+		line-height: calc(28em / 14)
+		&.active
+			color: rgb($blue)
+	&-blog
+		width: 100%
+		position: absolute
+		top: calc(50vh + 50px)
+		&-link
+			@extend %df
+			@extend %dfa
+		&-svg
+			+wh(14px)
+			margin-right: 10px
+			stroke: rgb($blue)
+
+
+.title
+	@extend %df
+	@extend %fdc
+	font-family: $f_bold
+	font-size: 2em
+	text-transform: uppercase
+	&.inline
+		flex-direction: row
+		.title-text
+			margin-right: 8px
+	&-text
+		line-height: 1.125em
+	.blue
+			color: rgb($blue)
+.text
+	color: rgb($gray,.4)
+	font-family: $v_reg
+	line-height: calc(20em / 14)
+
+
+.bgc
+	background: linear-gradient(261.36deg, #F2F2FF 0%, rgba(249, 249, 255, 0) 100%), linear-gradient(0deg, rgba(70, 132, 226, 0.02), rgba(70, 132, 226, 0.02)), #FFFFFF
+	&-reverce
+		background: linear-gradient(81.36deg, #F2F2FF 0%, rgba(249, 249, 255, 0) 100%), linear-gradient(180deg, rgba(70, 132, 226, 0.02), rgba(70, 132, 226, 0.02)), #FFFFFF
+	&,&-reverce
+		border-radius: 40px
+		box-shadow: 0 4px 18px 4px rgba(0, 0, 0, 0.04)
+
+
+.button
+	min-width: 147px
+	padding: 8px 26px 6px
+	border: 2px solid rgb($blue)
+	border-radius: 40px
+
+	font-family: $f_bold
+	color: rgb($blue)
+	text-transform: uppercase
+	line-height: 2em
+
+.line
+	+wh(100%, 4px)
+	margin-bottom: 10px
+	background-color: rgb($blue)
+
+.slider-dots
+	@extend %df
+	position: relative
+.dot
+	+wh(12px)
+	margin-right: 20px
+	border-radius: 100%
+	border: 2px solid rgb($gray)
+	background-color: rgb($gray)
+	&.active
+		transform: scale(0.7)
+	&:last-child
+		margin-right: 0
+	&-active
+		@extend %tr
+		+wh(20px,12px)
+		border-radius: 6px
+		background-color: rgb($blue)
+		position: absolute
+		left: -4px
+		z-index: 1
+
+
+.main-slider
+	.slider
+		@extend %tr
+		padding: 30px 20px 52px
+		position: relative
+		&-inner
+			@extend %df
+			@extend %dfa
+			overflow: hidden
+		&-button
+			display: none
+		&-dots
+			position: absolute
+			bottom: 20px
+
+	.slide
+		@extend %df
+		@extend %fdc
+		flex: 0 0 100%
+		top: 0
+		left: 0
+		position: relative
+		&-left
+			@extend %df
+			@extend %fdc
+			align-items: flex-start
+			.title
+				margin-bottom: 20px
+		.text
+			margin-bottom: 30px
+			color: rgba($gray,.6)
+			line-height: calc(24em / 14)
+		&-right
+			@extend %dfc
+			padding: 20px 0
+			img
+				height: 150px
+		.anim
+			@extend %tr
+			opacity: 0
+
+
+.block
+	padding-top: 50px
+	&-title
+		font-size: calc(22em / 14)
+	&-title,&-title-small
+		font-family: $f_bold
+		text-transform: uppercase
+	.block-title
+		margin-bottom: 30px
+	&-title-small
+		font-size: calc(18em / 14)
+	&-subtitle
+		@extend %df
+		@extend %dfa
+		font-family: $v_bold
+		text-transform: uppercase
+		&.blue
+			color: rgb($blue)
+		&-svg
+			+wh(18px)
+			margin-right: 10px
+			stroke: rgb($blue)
+
+
+.services
+	&-block
+		margin-bottom: 30px
+		padding: 30px
+		border-radius: 40px
+		box-shadow: 0 4px 18px 4px rgba(0, 0, 0, 0.04)
+		background-color: rgb($white)
+		&:last-child
+			margin-bottom: 0
+	.block-subtitle
+		margin-bottom: 10px
+	&-list
+		margin-top: 50px
+	&-item
+		margin-bottom: 50px
+	&-text
+		margin-bottom: 20px
+		color: rgba($gray,.4)
+		&:last-child
+			margin-bottom: 0
+	.button
+		margin: 0 auto
+		display: block
+	&-desc
+		.block-title
+			margin-bottom: 30px
+		.text
+			margin-bottom: 10px
+			text-indent: 1.5em
+		.button
+			margin-top: 20px
+
+
+.audience
+	&-block
+		margin-bottom: 50px
+		font-family: $f_bold
+		&:last-child
+			margin-bottom: 0
+	&-number
+		font-size: calc(12em / 14)
+		line-height: calc(28em / 14)
+	&-text
+		margin-bottom: 20px
+	&-number
+		margin-bottom: 10px
+
+
+.contact
+	padding: 30px 20px
+	&-left
+		margin-bottom: 20px
+	&-right
+		@extend %df
+		@extend %fdc
+		align-items: flex-start
+	.text
+		line-height: calc(24em/14)
+	.g-item
+		width: 100%
+		margin-bottom: 16px
+	&-info
+		&-link
+			@extend %df
+			@extend %dfa
+			margin-top: 10px
+			font-family: $f_bold
+			svg
+				+wh(15px)
+				margin-right: 10px
+				stroke: rgb($blue)
+	&-privacy
+		@extend %df
+		@extend %fdc
+		margin-bottom: 20px
+		align-items: flex-start
+		.g-item
+			margin-bottom: 10px
+		&-link
+			font-family: $f_bold
+			color: rgba($gray,.4)
+			position: relative
+			&:after
+				+af
+				+wh(100%,2px)
+				background-color: rgba($gray,.4)
+	&-button
+		@extend %df
+		@extend %dfa
+		color: rgb($blue)
+		text-transform: uppercase
+		font-family: $f_bold
+		line-height: 2em
+		svg
+			+wh(8px)
+			margin-left: 10px
+			stroke: rgb($blue)
+
+
+.features
+	&-item
+		@extend %df
+		@extend %dfa
+		@extend %fw
+		margin-bottom: 30px
+		padding: 0 20px 20px
+	&-icon
+		@extend %dfc
+		+wh(60px)
+		margin-right: 20px
+		transform: translateY(-10px )
+		svg
+			+wh(24px)
+			stroke: rgb($blue)
+	&-item,&-icon
+		@extend %bdrs
+		background-color: rgb($white)
+		box-shadow: 0 4px 18px 4px rgba(0, 0, 0, 0.04)
+	.text
+		width: 100%
+
+
+.client
+	position: relative
+	padding-bottom: 32px
+	.block-title-small,.text,&-link
+		color: rgb($white)
+	.slider
+		width: 279px
+		margin: 0 auto
+		overflow: hidden
+		&-inner
+			@extend %df
+			@extend %tr
+		&-dots
+			position: absolute
+			left: 50%
+			transform: translateX(-50%)
+			bottom: 0
+	.slide
+		@extend %bdrs
+		+wh(279px,458px)
+		flex: 0 0 279px
+		margin-right: 18px
+		overflow: hidden
+		background-color: rgb($gray)
+		box-shadow: 0px 4px 18px 4px rgba(0, 0, 0, 0.04)
+		position: relative
+	.text
+		margin-top: 20px
+	&-inner
+		@extend %df
+		@extend %fdc
+		+wh(100%)
+		padding: 40px 20px
+		position: absolute
+		z-index: 1
+	&-link
+		@extend %df
+		@extend %dfa
+		margin-top: auto
+		line-height: 2em
+		font-family: $f_bold
+		text-transform: uppercase
+		svg
+			+wh(8px)
+			margin-left: 10px
+			stroke: rgb($white)
+	&-img
+		@extend %bdrs
+		position: relative
+		img
+			+wh(100%)
+			object-fit: cover
+		&:after
+			+af
+			+wh(100%)
+			position: absolute
+			left: 0
+			top: 0
+			background-color: rgba($black,.4)
+
+
+.who
+	.block
+		&-title
+			margin-bottom: 3px!important
+	&-subtitle
+		margin-bottom: 10px
+		letter-spacing: -0.02em
+	&-photos
+		&,.col
+			@extend %df
+			@extend %fdc
+	&-photo
+		@extend %bdrs
+		@extend %df
+		@extend %fdc
+		margin-bottom: 10px
+		justify-content: flex-end
+		align-items: flex-start
+		overflow: hidden
+		position: relative
+		&:last-child
+			margin-bottom: 0
+		&-inner
+			position: absolute
+			left: 20px
+			bottom: 15px
+		.block-title-small,.text
+			color: rgb($white)
+		.text
+			margin-top: 3px
+			letter-spacing: -0.02em
+		img
+			+wh(100%)
+			object-fit: cover
+	&-item
+		margin-top: 10px
+	.button
+		margin-top: 20px
+
+
+.foot
+	padding-top: 50px
+	padding-bottom: 20px
+	&-row
+		@extend %df
+		@extend %fdc
+		@extend %dfa
+		@extend %bdrs
+		padding: 20px 10px
+		background-color: rgb($gray)
+		text-align: center
+		&,a
+			color: rgb($white)
+		a
+			margin-bottom: 10px
+			&:last-child
+				margin-bottom: 0
+	&-privacy
+		font-family: $f_bold
+		text-transform: uppercase
+	&-nav
+		@extend %df
+		@extend %dfa
+		@extend %fdc
+		&-link
+			margin-top: 10px
+			color: rgba($gray,.4)
+			font-family: $f_bold
+
+
+.tabs
+	overflow: hidden
+	&-head
+		@extend %df
+		@extend %dfa
+		padding: 10px 0
+		overflow: auto
+		&-btn
+			padding: 0 20px
+			white-space: nowrap
+			text-transform: uppercase
+			font-family: $f_bold
+			position: relative
+			&:after
+				+af
+				+wh(100%,3px)
+				position: absolute
+				left: 0
+				bottom: -6px
+	&-body
+		@extend %df
+		padding: 10px 0
+		overflow: hidden
+		&-item
+			flex: 0 0 100%
+	&-footer
+		@extend %dfi
+		position: relative
+		&-btn
+			@extend %dfc
+			@extend %tr
+			+wh(40px)
+			border-radius: 100%
+			border: 2px solid rgb($gray)
+			font-family: $f_bold
+			&:after
+				@extend %tr
+				+af
+				+wh(calc((100% - 160px) / 3),0)
+				border-bottom: 3px dashed rgb($gray)
+				position: absolute
+			&:nth-child(1)
+				&:after
+					left: 40px
+			&:nth-child(2)
+				&:after
+					left: calc((100% - 160px) / 3 + 80px)
+			&:nth-child(3)
+				&:after
+					left: calc(2 * (100% - 160px) / 3 + 120px)
+			&:last-child
+				&:after
+					content: none
+	input
+		&:nth-child(1):checked~.tabs-head .tabs-head-btn:nth-child(1):after,
+		&:nth-child(2):checked~.tabs-head .tabs-head-btn:nth-child(2):after,
+		&:nth-child(3):checked~.tabs-head .tabs-head-btn:nth-child(3):after,
+		&:nth-child(4):checked~.tabs-head .tabs-head-btn:nth-child(4):after
+			background-color: rgb($blue)
+		&:nth-child(2):checked~.tabs-body .tabs-body-item
+			transform: translateX(-100%)
+		&:nth-child(3):checked~.tabs-body .tabs-body-item
+			transform: translateX(-200%)
+		&:nth-child(4):checked~.tabs-body .tabs-body-item
+			transform: translateX(-300%)
+		&:nth-child(1):checked~.tabs-footer .tabs-footer-btn:nth-child(1),
+		&:nth-child(2):checked~.tabs-footer .tabs-footer-btn:nth-child(1),
+		&:nth-child(2):checked~.tabs-footer .tabs-footer-btn:nth-child(2),
+		&:nth-child(3):checked~.tabs-footer .tabs-footer-btn:not(:last-child),
+		&:nth-child(4):checked~.tabs-footer .tabs-footer-btn
+			background-color: rgb($blue)
+			color: rgb($white)
+			&,&:after
+				border-color: rgb($blue)
+
+
+
+
+
+
+
+
+
+
+
+
+
+

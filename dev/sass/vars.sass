@@ -1,0 +1,74 @@
+%df
+	display: flex
+%dfi
+	@extend %df
+	justify-content: space-between
+%dfc
+	@extend %df
+	justify-content: center
+	align-items: center
+%dfa
+	align-items: center
+%fw
+	flex-wrap: wrap
+%fdc
+	flex-direction: column
+%tr
+	transition: .35s ease
+
+\:root
+	///*--==[ Размеры экранов ]==--*/
+	--mobile-width: calc(100% - 20px)
+	--mobile-large-width: 460px
+	--tablet-width: 740px
+	--tablet-large-width: 1000px
+	--desktop-width: 1170px
+	// --==[ Цвета ]==--
+	
+
+	--black: #{getRgb(#000)}
+	--gray: #{getRgb(#525466)}
+	--white: #{getRgb(#fff)}
+	--red: #{getRgb(#FF0000)}
+	--green: #{getRgb(#00FF00)}
+	--blue: #{getRgb(#4684E2)}
+	// --==[ Шрифты ]==--
+	--fontsize-body: 14px
+	--freg: 'Geometria'
+	--fbold: 'Geometria-Bold'
+	--vreg: 'VisueltPro-Regular'
+	--vbold: 'VisueltPro-Bold'
+	// --==[ Отступы ]==--
+	--col: 70px
+	--gap: 30px
+
+
+
+// --==[ Ширины ]==--
+$mobile: var(--mobile-width)
+$mobile-large: var(--mobile-large-width)
+$tablet: var(--tablet-width)
+$tablet-large: var(--tablet-large-width)
+$desktop: var(--desktop-width)
+
+///*--==[ Отступы ]==--*/
+$col: var(--col)
+$gap: var(--gap)
+$f_reg: var(--freg)
+$f_bold: var(--fbold)
+$v_reg: var(--vreg)
+$v_bold: var(--vbold)
+// --==[Шрифты]==--
+//
+	$f_light: '1'
+	$f_reg: '2'
+	$f_semi:'3'
+	$f_bold:'4'
+
+// --==[ Цвета ]==--
+$black: var(--black)
+$gray: var(--gray)
+$white: var(--white)
+$red: var(--red)
+$green: var(--green)
+$blue: var(--blue)

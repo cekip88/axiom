@@ -1,0 +1,51 @@
+.main-slider
+	.slider(data-callback='mainSliderChange').bgc
+		button.slider-button.slider-prev(data-click='arrowClick' data-direction='prev')
+			svg
+				use(xlink:href='img/sprite.svg#arrow-left')
+		.slider-inner
+			.slide.active(data-id='0')
+				.slide-left
+					h2.title
+						span.title-text.anim(style="opacity: 1;") Tagline with
+						span.title-text.blue.anim(style="opacity: 1;") main keyword
+					p.text.anim Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+					a(href='#' style="opacity: 1;").button.anim
+						span Learn more
+				.slide-right.anim(style="opacity: 1;")
+					+img('main-slider-bg-1.png')
+			.slide(data-id='1')
+				.slide-left
+					h2.title
+						span.title-text.anim Tagline with
+						span.title-text.blue.anim main keyword
+					p.text.anim Tra ta ta
+					a(href='#').button.anim
+						span Learn more
+				.slide-right.anim
+					+img('main-slider-bg-2.png')
+			.slide(data-id='2')
+				.slide-left
+					h2.title
+						span.title-text.anim Tagline with
+						span.title-text.blue.anim main keyword
+					p.text.anim Slide 3
+					a(href='#').button.anim
+						span Learn more
+				.slide-right.anim
+					+img('main-slider-bg-3.png')
+			.slide(data-id='3')
+				.slide-left
+					h2.title
+						span.title-text.anim Tagline with
+						span.title-text.blue.anim main keyword
+					p.text.anim
+					a(href='#').button.anim
+						span Learn more
+				.slide-right.anim
+					+img('main-slider-bg-4.png')
+		button.slider-button.slider-next(data-click='arrowClick' data-direction='next')
+			svg
+				use(xlink:href='img/sprite.svg#arrow-right')
+		.slider-dots(data-click='dotClick')
+			.dot-active

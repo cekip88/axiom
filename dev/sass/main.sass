@@ -1,0 +1,37 @@
+@import "../../../../core/mixins/reset"
+@import "../../../../core/mixins/mixins"
+@import "vars"
+$dpx: 14px
+$font_body: 14px
++font_inc('Geometria','Geometria.woff')
++font_inc('Geometria-Bold','Geometria-Bold.woff')
++font_inc('VisueltPro-Regular','VisueltPro-Regular.woff2')
++font_inc('VisueltPro-Bold','VisueltPro-Bold.woff2')
+.set,body
+	+wh(100%)
+body
+	+font($font_body,$f_reg,rgb($gray))
+	min-height: 100vh
+	overflow-x: hidden
+	button,a
+		color: rgb($gray)
+
+input,button
+	font-family: inherit
+	font-size: inherit
+	background-color: transparent
+	border: none
+button,label,input[type='submit'],input[type='button']
+	cursor: pointer
+input[type='radio']
+	display: none
+// -==[ Медиа ]==-
+@import "media/m"
++mq(440px)
+	@import "media/ml"
++mq(740px)
+	@import "media/t"
++mq(1000px)
+	@import "media/tl"
++mq(1170px)
+	@import "media/d"

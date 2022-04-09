@@ -1,0 +1,182 @@
+extends template/main
+append vars
+	-
+		page_title= 'Main'
+block content
+	main
+		section
+			.section
+				include parts/main-slider
+		section.block
+			.section
+				h2.block-title
+					span The services we offer
+				.services
+					.services-block
+						h3.block-title-small
+							span OUTSTAFFING
+						ul.services-list
+							li.services-item
+								h5.block-subtitle
+									svg.block-subtitle-svg
+										use(xlink:href='img/sprite.svg#code')
+									span.block-subtitle-text Web development
+								p.services-text Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups.
+								p.services-text Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups.
+							li.services-item
+								h5.block-subtitle
+									svg.block-subtitle-svg
+										use(xlink:href='img/sprite.svg#eyedropper')
+									span.block-subtitle-text Web  design
+								p.services-text Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups.
+								p.services-text Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups.
+						button.button
+							span Learn More
+					.services-block
+						h3.block-title-small
+							span recruitment
+						ul.services-list
+							li.services-item
+								h5.block-subtitle
+									svg.block-subtitle-svg
+										use(xlink:href='img/sprite.svg#creditcard')
+									span.block-subtitle-text E-COMMERCE
+								p.services-text.text Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups.
+								p.services-text.text Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups.
+							li.services-item
+								h5.block-subtitle
+									svg.block-subtitle-svg
+										use(xlink:href='img/sprite.svg#database')
+									span.block-subtitle-text DATA MANAGEMENT
+								p.services-text.text Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups.
+								p.services-text.text Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups.
+						button.button
+							span Learn More
+		section.block
+			.section
+				h2.block-title
+					span Audience description
+				.audience
+					.audience-block
+						span.audience-number 01
+						.line
+						p.audience-text SOME REASON TO WORK WITH US AND WHY WE DO IT BETTER THAN SOME ONE ELSE
+						button.button
+							span Contact Us
+					.audience-block
+						span.audience-number 02
+						.line
+						p.audience-text SOME REASON TO WORK WITH US
+						button.button
+							span Contact Us
+					.audience-block
+						span.audience-number 03
+						.line
+						p.audience-text SOME REASON TO WORK WITH US AND WHY WE DO IT BETTER THAN SOME ONE ELSE
+						button.button
+							span Contact Us
+					.audience-block
+						span.audience-number 04
+						.line
+						p.audience-text SOME REASON TO WORK WITH US
+						button.button
+							span Contact Us
+		include parts/contact-form
+		section.block
+			.section
+				h2.block-title
+					span our features and guaranties
+				ul.features
+					-for (let i = 0; i < 6; i++)
+						li.features-item
+							.features-icon
+								svg
+									use(xlink:href='img/sprite.svg#convenience')
+							h5.block-subtitle Convenience
+							p.text Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups.
+					button.button
+						span Let's check
+		include parts/clients-slider
+		section.block.who
+			.section
+				h2.block-title
+					span Who we are
+				h3.block-subtitle.blue.who-subtitle
+					span We're more than a digital agency
+				.who-photos
+					.who-photo
+						.who-photo-inner
+							h5.block-title-small
+								span USA Office
+							p.text New Jersey, USA
+						+img('who-photo-1.jpg')
+					.col
+						.who-photo
+							.who-photo-inner
+								h5.block-title-small
+									span USA Office
+								p.text New Jersey, USA
+							+img('who-photo-2.jpg')
+						.who-photo
+							.who-photo-inner
+								h5.block-title-small
+									span USA Office
+								p.text New Jersey, USA
+							+img('who-photo-3.jpg')
+				ul.who-list
+					li.who-item
+						h6.block-subtitle
+							span Who we are
+						.line
+						p.text Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing.
+					li.who-item
+						h6.block-subtitle
+							span phIlosophy
+						.line
+						p.text Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing.
+					li.who-item
+						h6.block-subtitle
+							span How we work
+						.line
+						p.text Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing.
+				button.button
+					span About
+		section.block
+			.section
+				form.bgc-reverce.contact
+					.contact-left
+						h2.title.inline
+							span.title-text Contact
+							span.title-text.blue Form
+						p.text Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+						.contact-info
+							a(href='#').contact-info-link
+								svg
+									use(xlink:href='img/sprite.svg#mail')
+								span mail@axiom.com
+							a(href='#').contact-info-link
+								svg
+									use(xlink:href='img/sprite.svg#phone')
+								span +7 10 1 631 3975484
+					.contact-right
+						g-input(class='g-item' type='text' required title='Full name' placeholder='')
+						g-input(class='g-item' type='email' required title='E-mail' placeholder='')
+						g-input(class='g-item' type='phone' required title='Phone number' placeholder='')
+						.contact-privacy
+							g-input(class='g-item g-input-check' data-change='testChange'  type='checkbox' items=[{
+								value: 1,
+								text: 'I agree with the'
+							}] required placeholder='Checkbox')
+							a(href='#').contact-privacy-link
+								span Privacy policy
+						button.contact-button.send
+							span SEND
+							svg
+								use(xlink:href='img/sprite.svg#send-arrow')
+
+
+
+
+
+
+

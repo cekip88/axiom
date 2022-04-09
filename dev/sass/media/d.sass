@@ -1,0 +1,152 @@
+%trd
+	transition: .35s ease
+
+.section
+	+w($desktop)
+
+
+@keyframes send
+	0%
+		transform: translateX(0)
+	50%
+		transform: translateX(10px)
+	100%
+		transform: translateX(0)
+
+
+.button
+	@extend %trd
+	&:hover
+		background-color: rgb($blue)
+		color: rgb($white)
+
+.head
+	&-section
+		padding: 69px 0 76px
+	&-logo
+		margin-left: 50px
+	&-link
+		@extend %trd
+		&:hover
+			color: rgb($gray)
+	&-blog
+		width: 150px
+		&-link
+			span
+				position: relative
+				&:after
+					@extend %trd
+					+af
+					+wh(0,4px)
+					background-color: rgb($blue)
+					position: absolute
+					left: 50%
+					bottom: -4px
+			&:hover
+				span
+					&:after
+						width: 100%
+						left: 0
+
+
+.main-slider
+	.title
+		font-size: calc(48em/14)
+		&-text
+			line-height: calc(54em/48)
+	.slider
+		padding: 16px 150px 16px 100px
+		&-dots
+			bottom: 111px
+			left: 306px
+		.dot
+			@extend %trd
+			&:hover
+				background-color: rgb($white)
+		&-button
+			svg
+				@extend %trd
+			&:not([disabled]):hover
+				svg
+					fill: rgb($blue)
+		&-prev
+			left: 40px
+		&-next
+			right: 40px
+	.slide
+		&-left
+			flex-basis: 475px
+		.text
+			height: 48px
+			overflow: hidden
+		.button.anim
+			opacity: 1
+
+
+.contact
+	&-privacy
+		&-link
+			&,&:after
+				@extend %trd
+			&:hover
+				color: rgb($gray)
+				&:after
+					background-color: rgb($gray)
+	&-info
+		&-link
+			@extend %trd
+			&:hover
+				color: rgb($blue)
+
+
+.send
+	svg
+		animation-duration: 0.5s
+		animation-iteration-count: infinite
+	&:hover
+		svg
+			animation-name: send
+
+
+.features
+	margin-top: -61px
+	&-item
+		flex-basis: calc((100% - 36px) / 3)
+		margin-top: 82px
+		margin-bottom: 0
+	.text
+		margin-top: 10px
+		letter-spacing: -.05em
+	.button
+		margin-top: 36px
+
+
+.who
+	&-photos
+		&>.who-photo
+			+wh(675px,552px)
+		&,.col
+			justify-content: space-between
+		.col
+			.who-photo
+				height: calc(50% - 12px)
+
+
+.foot
+	&-privacy,&-nav-link
+		position: relative
+		&:after
+			@extend %trd
+			+af
+			+wh(0,2px)
+			background-color: rgb($white)
+			position: absolute
+			left: 50%
+			bottom: -2px
+		&:hover
+			&:after
+				width: 100%
+				left: 0
+	&-nav-link
+		&:after
+			background-color: rgba($gray,.4)

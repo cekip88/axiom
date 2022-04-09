@@ -1,0 +1,27 @@
+header.head
+	.section.head-section
+		a(href='./').head-logo
+			svg.head-logo-svg
+				use(xlink:href='img/sprite.svg#logo')
+		button.head-burger(data-click='burger')
+			span.line
+			span.line
+			span.line
+		nav.head-nav
+			a(href='./').head-link.active
+				span Home
+			a(href='./services.html').head-link
+				span Services
+			a(href='./about.html').head-link
+				span About
+			a(href='./contact.html').head-link
+				span Contact
+		.head-blog
+			a(href='./blog.html').head-blog-link
+				svg.head-blog-svg
+					use(xlink:href='img/sprite.svg#message')
+				span Blog
+section.lines
+	.section
+		-for (let i = 0; i < 13; i++)
+			.lines-item

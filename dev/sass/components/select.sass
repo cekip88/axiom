@@ -1,0 +1,65 @@
+:host
+	--body-display: none
+	--body-max-height: 0px
+ 
+.g-select
+	+wh(100%)
+	min-width: 80px
+	position: relative
+	border: 1px solid #dbdbdb
+	&-head
+		+wh(100%,30px)
+		cursor: pointer
+		display: flex
+		align-items: center
+		justify-content: space-between
+		background-color: #fff
+		white-space: normal
+		transition: .35s ease
+		padding: 5px 10px
+	&-body
+		width: 100%
+		max-height: var(--body-max-height)
+		display: flex
+		flex-direction: column
+		align-items: flex-start
+		background-color: #fff
+		overflow: hidden
+		position: absolute
+		left: 0
+		top: 100%
+		z-index: 2
+		transition: .2s ease
+	&.active &-body
+		overflow: auto
+		border: 1px solid #dbdbdb
+	&.active &-head:after
+		transform: rotate(-45deg)
+	&-option
+		flex: 0 0 30px
+		width: 100%
+		margin-bottom: 1px
+		padding: 0 10px
+		text-align: left
+		display: flex
+		justify-content: flex-start
+		align-items: center
+		&:hover,&.active
+			background-color: #dbdbdb
+	&-arrow
+		width: 20px
+		svg
+			stroke: red
+			fill: none
+			width: 8px
+.with-arrow:after
+	+wh(5px)
+	content: ''
+	display: block
+	flex: 0 0 5px
+	margin-left: 5px
+	border-top: 2px solid #000
+	border-right: 2px solid #000
+	transform: rotate(135deg)
+	transition: .35s ease
+ 

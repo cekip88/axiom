@@ -1,0 +1,190 @@
+.section
+	+w($tablet)
+
+
+main
+	padding-top: 0
+
+
+.lines
+	+wh(100%)
+	position: fixed
+	top: 0
+	z-index: -1
+	.section
+		display: flex
+		justify-content: space-between
+	&-item
+		height: 100vh
+		width: 1px
+		background-color: rgba($gray,.1)
+		&:nth-child(2),&:nth-child(6),&:nth-child(10)
+			background: none
+
+
+.head
+	background: none
+	position: static
+	&,&.active
+		height: initial
+	&-burger
+		display: none
+	&-nav
+		width: initial
+		flex-direction: row
+		transform: none
+	&-link
+		margin-right: 20px
+		color: rgba($gray,.6)
+		position: relative
+		&:after
+			+af
+			+wh(0,4px)
+			background-color: rgb($blue)
+			position: absolute
+			left: 50%
+			bottom: -4px
+		&:last-child
+			margin-right: 0
+		&.active
+			color: rgb($gray)
+			&:after
+				width: 100%
+				left: 0
+	&-blog
+		width: 100px
+		display: flex
+		justify-content: flex-end
+	&-nav,&-blog
+		position: static
+
+
+.main-slider
+	.slider
+		padding: 40px
+		&-button
+			display: block
+			position: absolute
+			top: 50%
+			transform: translateY(-50%)
+			svg
+				+wh(18px,30px)
+				fill: rgb($gray)
+			&[disabled]
+				opacity: .4
+				cursor: initial
+		&-prev
+			left: 20px
+		&-next
+			right: 20px
+	.slide
+		padding: 0
+		align-items: center
+		justify-content: space-between
+		flex-direction: row
+		&-left
+			flex: 0 0 calc(50% - 36px)
+			margin-right: 50px
+		&-right
+			padding: 0
+			img
+				height: initial
+
+
+.services
+	display: flex
+	&-block
+		margin-right: 18px
+		margin-bottom: 0
+		&:last-child
+			margin-right: 0
+
+
+.audience
+	display: flex
+	justify-content: space-between
+	&-block
+		flex: 0 0 calc((100% - 54px) / 4)
+		margin-bottom: 0
+	&-text
+		margin-bottom: 50px
+
+
+.contact
+	display: flex
+	align-items: center
+	&-left
+		margin-right: 117px
+	&-right
+		flex: 0 0 279px
+	.title
+		margin-bottom: 20px
+	&-privacy
+		flex-direction: row
+		.g-item
+			margin-bottom: 0
+		&-link
+			margin-left: 5px
+			white-space: nowrap
+
+
+.features
+	display: flex
+	flex-wrap: wrap
+	justify-content: space-between
+	&-item
+		flex: 0 0 calc(50% - 9px)
+
+
+.client
+	padding-bottom: 52px
+	.slider
+		width: 576px
+
+
+
+.who
+	&-photos
+		flex-direction: row
+		align-items: stretch
+		&>.who-photo
+			margin-bottom: 0
+			margin-right: 10px
+		.col
+			.who-photo
+				height: calc(50% - 5px)
+	&-list
+		display: flex
+		align-items: flex-start
+		justify-content: space-between
+	&-item
+		flex: 0 0 calc((100% - 36px) / 3)
+
+
+.foot
+	&-row
+	&-nav
+		padding-top: 20px
+		flex-direction: row
+		justify-content: space-between
+		&-link
+			margin-top: 0
+
+
+
+.tabs
+	&-head
+		border-bottom: 4px solid rgba($gray,.4)
+		overflow: visible
+		&-btn
+			&:after
+				height: 4px
+				bottom: -14px
+				z-index: 1
+	&-body
+		padding-top: 24px
+		padding-bottom: 48px
+		.text
+			text-indent: 1.5em
+			strong
+				font-family: $f_bold

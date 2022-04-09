@@ -1,0 +1,20 @@
+section.block
+	.section
+		form.bgc-reverce.contact
+			.contact-left
+				h2.title
+					span.title-text Leadmagnet with
+					span.title-text.blue Main keyword
+				p.text Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+			.contact-right
+				g-input(class='g-item' type='text' required title='Full name' placeholder='')
+				g-input(class='g-item' type='email' required title='E-mail' placeholder='')
+				g-input(class='g-item' type='phone' required title='Phone number' placeholder='')
+				.contact-privacy
+					g-input(class='g-item g-input-check' data-change='testChange'  type='checkbox' items=[{value: 1, text: 'I agree with the'}] required placeholder='Checkbox')
+					a(href='#').contact-privacy-link
+						span Privacy policy
+				button.contact-button.send
+					span SEND
+					svg
+						use(xlink:href='img/sprite.svg#send-arrow')

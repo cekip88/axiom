@@ -1,0 +1,35 @@
+.select(data-click-action='front:select')
+  .select-input
+    input(type='hidden').select-input-item
+  .select-head
+    button(type='button').select-head-item
+      span Выберите пункт
+  .select-dropdown
+    - for(let i = 1; i < 10; i++)
+      button(type='button' data-value=i).select-dropdown-item
+        span Пункт&nbsp;
+          =i
+
+
+.select(data-click-action='front:select')
+  .select-input
+    input(type='hidden').select-input-item
+  .select-head
+    input(type='text' placeholder='Выберите пункт' data-input-action='front:selectFilter').select-head-item
+  .select-dropdown
+    - for(let i = 1; i < 10; i++)
+      button(type='button' data-value=i).select-dropdown-item
+        span Пункт&nbsp;
+          =i
+
+
+.select(data-click-action='front:select')
+  .select-head
+    button(type='button').select-head-item
+      span Выберите пункт
+  .select-dropdown
+    - for(let i = 1; i < 10; i++)
+      label.select-dropdown-item
+        input(type='checkbox' value=i)
+        span Пункт&nbsp;
+          =i

@@ -1,0 +1,15 @@
+footer.foot
+	.section
+		.foot-row
+			a(href='./').foot-logo
+				+img('foot-logo.svg')
+			a(href='./terms.html').foot-privacy terms of use
+			a(href='./privacy.html').foot-privacy privacy policy
+			.foot-copy Copyright © 2014 — 2022 Axiom. All Rights Reserved. ®
+		nav.foot-nav
+			a(href='./').foot-nav-link HOME
+			a(href='./services.html').foot-nav-link SERVICES
+			a(href='./about.html').foot-nav-link ABOUT
+			a(href='./contact.html').foot-nav-link CONTACT
+			a(href='./blog.html').foot-nav-link BLOG
+	+inc('js','front.js',false)(type="module")

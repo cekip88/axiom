@@ -1,0 +1,120 @@
+:host
+	--animation-time: .35s
+	--blue: 70, 132, 226
+	--red: 255, 106, 85
+	--green: 131, 191, 110
+	--gap: 10px
+
+@font-face
+	src: url(../fonts/Geometria.woff)
+	font-family: "Geometria"
+	font-display: swap
+
+.inpt
+	+wh(100%)
+	position: relative
+	display: inline-block
+	&-title
+		font: 13px/23px "Geometria"
+	&-value,&-mask
+		width: 100%
+		height: 42px
+		padding: 0 var(--gap)
+		display: inline-flex
+		align-items: center
+		border-radius: 4px
+		border-bottom: 4px solid rgba(70,132,226,.6)
+		background: #FFFFFF
+		box-shadow: 0 0 8px rgba(0, 0, 0, 0.12)
+		overflow: hidden
+		font: 1.15em "Geometria"
+		color: #525466
+	&-value:before
+		+af
+	&-value.focused,
+	&-value:focus
+		border-color: rgb(var(--blue))
+	&-value
+		img
+			width: 8px
+			margin-right: var(--gap)
+			transition: .35s ease
+			&:hover
+				transform: rotate(90deg)
+		&-placeholder
+			font-size: 13px
+			pointer-events: none
+	&-mask,&-tip
+		top: 0
+		left: 0
+		opacity: 0
+	&-tip
+		top: 75%
+		font-size: 11px
+		transform: scale(0.95)
+	&-mask,&-tip,&-mask-placeholder,&-date-img
+		transition: var(--animation-time) ease
+		position: absolute
+	&-mask-date
+		opacity: 0
+		position: absolute
+	&-mask-date,&-date-img
+		bottom: 15px
+		right: var(--gap)
+		width: 48px
+	&-mask-placeholder
+		opacity: 0
+		left: var(--gap)
+		width: 100%
+		font-size: 10px
+		bottom: 3px
+		color: #ddd
+	&-value:focus+&-mask-placeholder
+		opacity: 1
+	&-date-img
+		+wh(20px)
+		pointer-events: none
+	&.error
+		border-color: rgb(var(--red))
+	&.error &-tip,
+	&.error &-value-placeholder,
+	&.error &-value::placeholder
+		color: rgb(var(--red))
+	&.error &-value
+		color: rgb(var(--red))
+		border-bottom-color: rgb(var(--red))
+	&.error &-tip,&.success &-tip
+		top: 110%
+		transform: scale(1)
+		opacity: 1
+	&.success
+		border-color: rgb(var(--green))
+	&.success &-tip,
+	&.success &-value-placeholder,
+	&.success &-value::placeholder
+		color: rgb(var(--green))
+	&.success &-value
+		border-bottom-color: rgb(var(--green))
+	&-checkbox
+		display: none
+		&:checked+&-label:before
+			background: #4684E2 url('../../img/checked.svg') no-repeat center
+			border-color: transparent
+		&-label
+			position: relative
+			display: flex
+			cursor: pointer
+			align-items: center
+			margin-bottom: var(--gap)
+			&-text
+				margin-left: var(--gap)
+			&:before
+				content: ''
+				transition: .35s ease
+				background-color: #fff
+				width: 14px
+				height: 14px
+				border-radius: 2px
+				border: 1px solid #525466
+		
+	 
