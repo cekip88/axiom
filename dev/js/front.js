@@ -11,6 +11,12 @@ class Front extends G_G{
 
 		_.head = _.f('.head');
 		_.sliders = {};
+		_.resolutions = {
+			'mobile' : [0,767],
+			'tablet' : [768,1023],
+			'large-tablet' : [1024,1199],
+			'desktop' : [1200,25000]
+		};
 
 		G_Bus
 			.on('inputValidate',_.inputValidate.bind(_))
@@ -18,6 +24,8 @@ class Front extends G_G{
 			.on('burger',_.burger.bind(_))
 			.on('dotClick',_.dotClick.bind(_))
 			.on('arrowClick',_.arrowClick.bind(_))
+			.on('showBlogSearch',_.showBlogSearch.bind(_))
+			.on('cancelBlogSearch',_.cancelBlogSearch.bind(_))
 	}
 	showNote(){
 		G_Bus.trigger('showModal',{
@@ -38,7 +46,21 @@ class Front extends G_G{
 		_.head.classList.toggle('active');
 	}
 
-
+	showBlogSearch(clickData){
+		const _ = this;
+		let btn = clickData.item;
+		btn.classList.toggle('active');
+		let searchBlock = _.f('.search');
+		searchBlock.classList.toggle('active');
+	}
+	cancelBlogSearch(){
+		const _ = this;
+		let searchBlock = _.f('.search');
+		let searchButton = _.f('.blog-search-btn');
+		searchButton.classList.remove('active');
+		searchBlock.classList.remove('active');
+		searchBlock.querySelector('INPUT').value = '';
+	}
 
 	dotClick(clickData){
 		const _ = this;
@@ -110,11 +132,8 @@ class Front extends G_G{
 		if (_.sliders[position]['ongoing']) return;
 		_.sliders[position]['ongoing'] = true;
 
-		let
-			inner = _.sliders[position]['inner'],
-			activeIndex = parseInt(inner.firstElementChild.getAttribute('data-id'));
-
-		_.sliders[position]['index'] = (direction === 'next') ? activeIndex + 1 : activeIndex - 1;
+		if ((direction === 'next')) _.sliders[position]['index']++
+		else _.sliders[position]['index']--
 		_.slideChange(position)
 	}
 	arrowCheck(position){
@@ -132,16 +151,22 @@ class Front extends G_G{
 	slideChange(position){
 		const _ = this;
 
-		_.dotAnimation(position);
+		if (_.sliders[position]['dots'])_.dotAnimation(position);
 		if (_.sliders[position]['prev'])_.arrowCheck(position);
 
 		_[_.sliders[position]['slider'].getAttribute('data-callback')](position);
 		_.autoSwitch(position);
 	}
-	clientSliderChange(posittion){
+	clientSliderChange(position){
 		const _ = this;
-		let sliderInfo = _.sliders[posittion];
+		let sliderInfo = _.sliders[position];
 		sliderInfo['inner'].style = `transform: translateX(-${297 * sliderInfo['index']}px);`;
+		sliderInfo['ongoing'] = false;
+	}
+	reviewSliderChange(position){
+		const _ = this;
+		let sliderInfo = _.sliders[position];
+		sliderInfo['inner'].firstElementChild.style = `margin-left:-${sliderInfo['index'] * 100}%;`;
 		sliderInfo['ongoing'] = false;
 	}
 	mainSliderChange(position){
@@ -194,13 +219,29 @@ class Front extends G_G{
 	}
 
 
-
+	getResolution (){
+		const _ = this;
+		let resolution = window.innerWidth;
+		let curResolution;
+		for (let key in _.resolutions) {
+			if (resolution >= _.resolutions[key][0]) curResolution = key;
+			else break;
+		}
+		return curResolution;
+	}
+	checkSliderForResolution(slider){
+		const _ = this;
+		let curRes = _.getResolution();
+		let dataRes = slider.getAttribute(`data-${curRes}`);
+		return dataRes !== 'false';
+	}
 	slidersInit(){
 		const _ = this;
 		let sliders = document.querySelectorAll('.slider');
 
 		for (let i = 0; i < sliders.length; i++) {
 			let slider = sliders[i];
+
 			_.sliders[i] = {slider};
 			_.sliders[i]['inner'] = slider.querySelector('.slider-inner');
 			_.sliders[i]['index'] = 0;
@@ -218,10 +259,13 @@ class Front extends G_G{
 	dotsInit(position){
 		const _ = this;
 		let
-			dotsCont = _.sliders[position]['slider'].querySelector('.slider-dots'),
+			dotsCont = _.sliders[position]['slider'].querySelector('.slider-dots');
+		if (!dotsCont) return;
+		let
 			count = _.sliders[position]['count'];
 		dotsCont.innerHTML = '';
-		if (count > 1) {
+
+		if (count > 1 && _.checkSliderForResolution(_.sliders[position]['slider'])) {
 			dotsCont.append(_.markup(`<div class="dot-active"></div>`));
 			for (let i = 0; i < count; i++) {
 				let dot = `<button data-id="${i}" class="dot${!i ? ' active' : ''}"></button>`;
@@ -229,7 +273,7 @@ class Front extends G_G{
 				dotsCont.setAttribute('data-position',position);
 				_.sliders[position]['dots'] = dotsCont;
 			}
-		} else dotsCont.remove();
+		}
 	}
 	arrowsInit(position){
 		const _ = this;
@@ -253,11 +297,13 @@ class Front extends G_G{
 		const _ = this;
 		_.slidersInit();
 
-		let winWidth = window.innerWidth;
+		let curRes = _.getResolution();
 		window.addEventListener('resize',()=>{
-			if ((winWidth < 768 && window.innerWidth >= 768) || (winWidth >= 768 && window.innerWidth < 768)) {
-				winWidth = window.innerWidth;
+			let winWidth = window.innerWidth;
+			if (winWidth < _.resolutions[curRes][0] || winWidth > _.resolutions[curRes][1]) {
+				curRes = _.getResolution();
 				_.slidersInit();
+				console.log('test')
 			}
 		})
 	}

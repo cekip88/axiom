@@ -1,0 +1,32 @@
+section.block
+	.section
+		form.bgc-reverce.contact
+			.contact-left
+				h2.title.inline
+					span.title-text Contact
+					span.title-text.blue Form
+				p.text Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+				.contact-info
+					a(href='#').contact-info-link
+						svg
+							use(xlink:href='img/sprite.svg#mail')
+						span mail@axiom.com
+					a(href='#').contact-info-link
+						svg
+							use(xlink:href='img/sprite.svg#phone')
+						span +7 10 1 631 3975484
+			.contact-right
+				g-input(class='g-item' type='text' required title='Full name' placeholder='')
+				g-input(class='g-item' type='email' required title='E-mail' placeholder='')
+				g-input(class='g-item' type='phone' required title='Phone number' placeholder='')
+				.contact-privacy
+					g-input(class='g-item g-input-check' data-change='testChange'  type='checkbox' items=[{
+						value: 1,
+						text: 'I agree with the'
+					}] required placeholder='Checkbox')
+					a(href='#').contact-privacy-link
+						span Privacy policy
+				button.contact-button.send
+					span SEND
+					svg
+						use(xlink:href='img/sprite.svg#send-arrow')

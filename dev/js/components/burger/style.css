@@ -1,0 +1,27 @@
+:host{
+  --color: green;
+  --right: 15px;
+}
+.g-burger{
+    position: fixed;
+    z-index: 1;
+    right: var(--right);
+    top: 15px;
+}
+.g-burger:before,.g-burger:after{
+    content: '';
+}
+.g-burger-item,.g-burger:before,.g-burger:after{
+    display: block;
+    width: 30px;
+    height: 2px;
+    background-color: var(--color);
+}
+.g-burger-item{
+    margin: 5px 0;
+}
+@media screen and (min-width: 600px){
+    .g-burger{
+        display: none;
+    }
+}

@@ -8,43 +8,94 @@ block content
 			.section
 				h2.block-title
 					span Services
-				p.text Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups.
-				p.text Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups.
+				p.text
+					| Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups.
+					br
+					br
+					| Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups.
 				button.button
 					span Let's start
-		section.block
+		include parts/tabs
+		section.block.small.audience-services
 			.section
 				h2.block-title
-					span How It works
-				.tabs
-					input(type='radio' name='tabs' checked)#tabs-one
-					input(type='radio' name='tabs')#tabs-two
-					input(type='radio' name='tabs')#tabs-three
-					input(type='radio' name='tabs')#tabs-four
-					.tabs-head
-						label(for='tabs-one').tabs-head-btn
-							span 01 Tab One
-						label(for='tabs-two').tabs-head-btn
-							span 02 Tab Two
-						label(for='tabs-three').tabs-head-btn
-							span 03 Tab Three
-						label(for='tabs-four').tabs-head-btn
-							span 04 Tab Four
-					.tabs-body
-						.tabs-body-item.tabs-bodies-one
-							p.text #[strong Lorem ipsum] is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups.
-						.tabs-body-item.tabs-bodies-two
-							p.text #[strong Lorem ipsum] is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups.
-						.tabs-body-item.tabs-bodies-three
-							p.text #[strong Lorem ipsum] is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups.
-						.tabs-body-item.tabs-bodies-four
-							p.text #[strong Lorem ipsum] is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups.
-					.tabs-footer
-						label(for='tabs-one').tabs-footer-btn
-							span 01
-						label(for='tabs-two').tabs-footer-btn
-							span 02
-						label(for='tabs-three').tabs-footer-btn
-							span 03
-						label(for='tabs-four').tabs-footer-btn
-							span 04
+					span audience portreit
+				.slider(data-callback='clientSliderChange' data-short='true' data-desktop='false')
+					.audience-list.slider-inner
+						-let i = 0;
+						each value in ['RETail','IT & TELECOM','Government','Finance']
+							-i++
+							.audience-item.slide.small-slide
+								.small-inner
+									h5.block-title-small
+										span #{value}
+									p.text Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups.
+									a(href='#').small-link.send
+										span this is us
+										svg
+											use(xlink:href='img/sprite.svg#send-arrow')
+								.small-img
+									img(src=`img/audience-slide-${i}.jpg`)
+					.slider-dots(data-click='dotClick')
+		section.block.result
+			.section
+				h2.block-title
+					span results and guaranties
+				ul.result-list
+					-for (let i = 0; i < 3; i++)
+						li.result-item.guarant-item
+							.guarant-icon.result-icon
+								svg
+									use(xlink:href='img/sprite.svg#target')
+							h5.block-subtitle
+								span Result
+							p.text Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups.
+					-for (let i = 0; i < 3; i++)
+						li.result-item.guarant-item
+							.guarant-icon.result-icon
+								svg
+									use(xlink:href='img/sprite.svg#medal')
+							h5.block-subtitle
+								span GUARANTIES
+							p.text Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups.
+		section.block.reviews.single-slider
+			.section
+				h2.block-title
+					span Reviews
+				.slider(data-callback='reviewSliderChange')
+					button.slider-button.slider-prev(data-click='arrowClick' data-direction='prev')
+						svg
+							use(xlink:href='img/sprite.svg#arrow-left')
+					.slider-inner
+						- for (let i = 0; i < 5; i++)
+							.slide(data-id=`${i}`)
+								.reviews-photo.circle-photo
+									+img('reviews-photo.jpg')
+								h5.block-subtitle
+									span Sir Michael Caine
+								h6.reviews-subtitle
+									span CEO of ANYCORP
+								p.text Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+								.reviews-row
+									span.reviews-date 10.02.2021
+									.reviews-stars
+										-for (let i = 0; i < 5; i++)
+											svg
+												use(xlink:href='img/sprite.svg#star')
+								a(href='#').reviews-link
+									span www.interinsurance.com
+					button.slider-button.slider-next(data-click='arrowClick' data-direction='next')
+						svg
+							use(xlink:href='img/sprite.svg#arrow-right')
+		include parts/contact-form-last
+
+
+
+
+
+
+
+
+
+
+

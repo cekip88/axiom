@@ -152,21 +152,40 @@ main
 		z-index: 1
 
 
-.main-slider
+
+.single-slider
 	.slider
 		@extend %tr
-		padding: 30px 20px 52px
 		position: relative
 		&-inner
 			@extend %df
 			@extend %dfa
 			overflow: hidden
 		&-button
+			display: block
+			position: absolute
+			top: 50%
+			transform: translateY(-50%)
+			svg
+				+wh(18px,30px)
+				fill: rgb($gray)
+			&[disabled]
+				opacity: .4
+				cursor: initial
+		&-prev
+			left: 0
+		&-next
+			right: 0
+
+
+.main-slider
+	.slider
+		padding: 30px 20px 52px
+		&-button
 			display: none
 		&-dots
 			position: absolute
 			bottom: 20px
-
 	.slide
 		@extend %df
 		@extend %fdc
@@ -196,13 +215,14 @@ main
 
 .block
 	padding-top: 50px
+	&,&-first
+		.block-title
+			margin-bottom: 30px
 	&-title
 		font-size: calc(22em / 14)
 	&-title,&-title-small
 		font-family: $f_bold
 		text-transform: uppercase
-	.block-title
-		margin-bottom: 30px
 	&-title-small
 		font-size: calc(18em / 14)
 	&-subtitle
@@ -264,6 +284,7 @@ main
 		margin-bottom: 20px
 	&-number
 		margin-bottom: 10px
+	&-list
 
 
 .contact
@@ -318,33 +339,35 @@ main
 
 
 .features
+	margin-top: -30px
 	&-item
 		@extend %df
 		@extend %dfa
 		@extend %fw
-		margin-bottom: 30px
+		@extend %bdrs
+		margin-top: 30px
 		padding: 0 20px 20px
+		background-color: rgb($white)
+		box-shadow: 0 4px 18px 4px rgba(0, 0, 0, 0.04)
+	&-icon
+		transform: translateY(-10px )
+	.text
+		width: 100%
+.guarant
 	&-icon
 		@extend %dfc
+		@extend %bdrs
 		+wh(60px)
-		margin-right: 20px
-		transform: translateY(-10px )
+		background-color: rgb($white)
+		box-shadow: 0 4px 18px 4px rgba(0, 0, 0, 0.04)
 		svg
 			+wh(24px)
 			stroke: rgb($blue)
-	&-item,&-icon
-		@extend %bdrs
-		background-color: rgb($white)
-		box-shadow: 0 4px 18px 4px rgba(0, 0, 0, 0.04)
-	.text
-		width: 100%
 
 
-.client
+.small
 	position: relative
 	padding-bottom: 32px
-	.block-title-small,.text,&-link
-		color: rgb($white)
 	.slider
 		width: 279px
 		margin: 0 auto
@@ -357,17 +380,19 @@ main
 			left: 50%
 			transform: translateX(-50%)
 			bottom: 0
-	.slide
+	&-slide
 		@extend %bdrs
 		+wh(279px,458px)
 		flex: 0 0 279px
 		margin-right: 18px
 		overflow: hidden
 		background-color: rgb($gray)
-		box-shadow: 0px 4px 18px 4px rgba(0, 0, 0, 0.04)
+		box-shadow: 0 4px 18px 4px rgba(0, 0, 0, 0.04)
 		position: relative
-	.text
-		margin-top: 20px
+		&:last-child
+			margin-right: 0
+		.block-title-small,.text,.small-link
+			color: rgb($white)
 	&-inner
 		@extend %df
 		@extend %fdc
@@ -375,6 +400,8 @@ main
 		padding: 40px 20px
 		position: absolute
 		z-index: 1
+	.text
+		margin-top: 20px
 	&-link
 		@extend %df
 		@extend %dfa
@@ -543,19 +570,207 @@ main
 		&:nth-child(4):checked~.tabs-footer .tabs-footer-btn
 			background-color: rgb($blue)
 			color: rgb($white)
-			&,&:after
+			border-color: rgb($blue)
+		&:nth-child(2):checked~.tabs-footer .tabs-footer-btn:first-child,
+		&:nth-child(3):checked~.tabs-footer .tabs-footer-btn:first-child,
+		&:nth-child(3):checked~.tabs-footer .tabs-footer-btn:nth-child(2),
+		&:nth-child(4):checked~.tabs-footer .tabs-footer-btn
+			&:after
 				border-color: rgb($blue)
 
 
+.result
+	&-list
+		margin-bottom: -18px
+	&-item
+		@extend %df
+		@extend %fw
+		margin-bottom: 18px
+	&-icon
+		margin-right: 18px
+	.text
+		margin-top: 16px
 
 
+.reviews
+	.slide
+		@extend %df
+		@extend %dfa
+		@extend %fdc
+		@extend %tr
+		flex: 0 0 100%
+		padding: 0 20px
+	&-photo
+		+wh(100px)
+		box-shadow: 0 2px 8px rgba(0,0,0,.22)
+	&-photo,&-row
+		margin-bottom: 10px
+	&-subtitle
+		font-family: $v_reg
+		color: rgba($gray,.4)
+	&-subtitle,.text
+		margin-bottom: 14px
+	.text
+		text-align: center
+	&-row
+		@extend %df
+		@extend %dfa
+		svg
+			+wh(13px)
+			fill: rgba($gold,1)
+	&-date
+		margin-right: 20px
+		color: rgba($gray,.4)
+		font-family: $v_reg
+	&-link
+		border-bottom: 1px solid #4F4D8E
+		font-family: $v_bold
+		color: rgba($gray,.4)
+		line-height: calc(20em / 14)
+		text-transform: uppercase
 
 
+.circle-photo
+	border-radius: 100%
+	overflow: hidden
+	img
+		+wh(100%)
+		object-fit: cover
 
 
+.awards
+	&-list
+		@extend %df
+		@extend %dfa
+		@extend %fw
+		margin-top: -20px
+	&-item
+		flex: 0 0 100%
+		margin-top: 20px
 
 
+.team
+	&-list
+		@extend %dfi
+		@extend %fw
+		margin-top: -30px
+	&-item
+		@extend %df
+		@extend %dfa
+		@extend %fdc
+		margin-top: 30px
+		.text
+			margin-top: 18px
+			text-align: center
+	&-photo
+		+wh(168px)
+		margin-bottom: 10px
+	&-subtitle
+		font-family: $v_reg
+		color: rgba($gray,.4)
 
 
+.blog
+	&-filter
+		@extend %dfi
+		@extend %dfa
+		@extend %fw
+		padding-bottom: 30px
+		margin-top: -10px
+		position: relative
+		&-btn
+			margin-top: 10px
+			margin-right: 10px
+			font-family: $v_bold
+			color: rgba($gray,.4)
+			text-transform: uppercase
+			&.active
+				color: rgb($blue)
+	&-search
+		&-btn
+			@extend %df
+			@extend %dfa
+			margin-right: 0
+			color: rgb($gray)
+			svg
+				+wh(16px)
+				margin-top: -3px
+				margin-right: 10px
+				stroke: rgb($blue)
+			&.active
+				color: rgb($blue)
+	&-list
+		margin-top: -24px
+		margin-bottom: 30px
+	&-item,&-single-item
+		margin-top: 24px
+		.block-subtitle
+			margin: 20px 0 10px
+		.text
+			margin-bottom: 14px
+	&-theme
+		@extend %bdrs
+		padding: 0 19px
+		background-color: rgba($white,.8)
+		font-family: $f_bold
+		text-transform: uppercase
+		line-height: 2em
+		position: absolute
+		z-index: 1
+		left: 10px
+		top: 10px
+	&-preview
+		@extend %bdrs
+		height: 168px
+		box-shadow: 0 4px 18px 4px rgba(0, 0, 0, 0.04)
+		overflow: hidden
+		position: relative
+		img
+			+wh(100%)
+			display: block
+			object-fit: cover
+	&-date
+		font-family: $v_bold
+	.button
+		margin: 0 auto
+		display: block
 
-
+.search
+	@extend %tr
+	width: 100%
+	max-width: 774px
+	position: absolute
+	top: 100%
+	z-index: 10
+	opacity: 0
+	visibility: hidden
+	&.active
+		opacity: 1
+		visibility: visible
+	&-header
+		@extend %df
+		@extend %dfa
+		svg
+			+wh(14px)
+			stroke: rgb($gray)
+		&-input
+			@extend %bdrs
+			width: 100%
+			padding: 27px 45px 27px 29px
+			box-shadow: 0 4px 20px 2px rgba(0, 0, 0, 0.24)
+			background-color: rgb($white)
+		&-cancel
+			position: absolute
+			right: 30px
+	&-result
+		@extend %bdrs
+		margin-top: 20px
+		padding: 20px 29px
+		background-color: rgb($white)
+		box-shadow: 0 4px 20px 2px rgba(0, 0, 0, 0.24)
+		&-list
+			max-height: 324px
+			overflow: auto
+		&-item
+			margin-bottom: 7px
+			padding: 7px

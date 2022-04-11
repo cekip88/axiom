@@ -49,6 +49,17 @@
 						left: 0
 
 
+
+.single-slider
+	.slider
+		&-button
+			svg
+				@extend %trd
+			&:not([disabled]):hover
+				svg
+					fill: rgb($blue)
+
+
 .main-slider
 	.title
 		font-size: calc(48em/14)
@@ -64,11 +75,7 @@
 			&:hover
 				background-color: rgb($white)
 		&-button
-			svg
-				@extend %trd
-			&:not([disabled]):hover
-				svg
-					fill: rgb($blue)
+			display: block
 		&-prev
 			left: 40px
 		&-next
@@ -111,9 +118,7 @@
 .features
 	margin-top: -61px
 	&-item
-		flex-basis: calc((100% - 36px) / 3)
 		margin-top: 82px
-		margin-bottom: 0
 	.text
 		margin-top: 10px
 		letter-spacing: -.05em
@@ -150,3 +155,60 @@
 	&-nav-link
 		&:after
 			background-color: rgba($gray,.4)
+
+
+
+.tabs
+	&-head
+		&-btn
+			@extend %trd
+			&:hover
+				color: rgb($blue)
+	&-footer
+		&-btn
+			@extend %trd
+			&:hover
+				background-color: rgb($white)!important
+				border-color: rgb($blue)!important
+				color: rgb($blue)!important
+
+
+.audience
+	&-services
+		padding-bottom: 0
+		.slider
+			width: initial
+			margin: 0
+			&-dots
+				display: none
+
+
+.reviews
+	&-link
+		@extend %trd
+		&:hover
+			color: rgb($gray)
+
+
+.blog
+	&-filter
+		&-btn
+			@extend %trd
+			&:hover
+				color: rgb($blue)
+
+
+.search
+	&-header
+		&-cancel
+			@extend %trd
+			svg
+				display: block
+			&:hover
+				transform: rotate(180deg)
+	&-result
+		&-item
+			@extend %trd
+			border-radius: 4px
+			&:hover
+				background-color: rgba($gray,.1)

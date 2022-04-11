@@ -59,24 +59,17 @@ main
 		position: static
 
 
-.main-slider
+
+.single-slider
 	.slider
-		padding: 40px
-		&-button
-			display: block
-			position: absolute
-			top: 50%
-			transform: translateY(-50%)
-			svg
-				+wh(18px,30px)
-				fill: rgb($gray)
-			&[disabled]
-				opacity: .4
-				cursor: initial
+		padding: 0 40px
 		&-prev
 			left: 20px
 		&-next
 			right: 20px
+.main-slider
+	.slider
+		padding: 40px
 	.slide
 		padding: 0
 		align-items: center
@@ -132,15 +125,15 @@ main
 	display: flex
 	flex-wrap: wrap
 	justify-content: space-between
+.guarant
 	&-item
 		flex: 0 0 calc(50% - 9px)
 
 
-.client
+.small
 	padding-bottom: 52px
 	.slider
 		width: 576px
-
 
 
 .who
@@ -171,7 +164,6 @@ main
 			margin-top: 0
 
 
-
 .tabs
 	&-head
 		border-bottom: 4px solid rgba($gray,.4)
@@ -188,3 +180,63 @@ main
 			text-indent: 1.5em
 			strong
 				font-family: $f_bold
+
+
+.result
+	&-list
+		display: flex
+		align-items: flex-start
+		justify-content: space-between
+		flex-wrap: wrap
+
+
+.awards
+	&-item
+		flex-basis: 50%
+		text-align: center
+
+
+.team
+	&-item
+		flex: 0 0 calc(50% - 9px)
+
+
+.blog
+	&-filter
+		&-btn
+			font-size: calc(18em / 14)
+	&-list
+		display: flex
+		flex-wrap: wrap
+	&-item
+		flex: 0 0 calc(50% - 9px)
+		margin-right: 18px
+		a
+			height: 100%
+			display: flex
+			flex-direction: column
+		&:nth-child(2n)
+			margin-right: 0
+	&-date
+		margin-top: auto
+	&-single
+		&-list
+			display: flex
+			flex-wrap: wrap
+			justify-content: space-between
+		&-item
+			flex: 0 0 calc(50% - 9px)
+
+
+
+
+
+
+
+
+
+
+
+
+
+

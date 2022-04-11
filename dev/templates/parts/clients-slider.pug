@@ -1,4 +1,4 @@
-section.block.client
+section.block.client.small
 	.section
 		h2.block-title
 			span Our Clients
@@ -7,22 +7,22 @@ section.block.client
 				-let i = 0;
 				each value in ['one','two','three','four','five','six']
 					-i++
-					.slide
-						.client-inner
+					.slide.small-slide
+						.small-inner
 							h5.block-title-small
 								span Client #{value}
 							p.text Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups.
 							-if (i === 1)
-								a(href='#').client-link.send
+								a(href='#').small-link.send
 									span Want the same?
 									svg
 										use(xlink:href='img/sprite.svg#send-arrow')
 							-if (i === 6)
-								a(href='#').client-link.send
+								a(href='#').small-link.send
 									span Contact Us
 									svg
 										use(xlink:href='img/sprite.svg#send-arrow')
 						-if (i < 6)
-							.client-img
+							.small-img
 								img(src=`img/contact-slide-${i}.jpg`)
 			.slider-dots(data-click='dotClick')

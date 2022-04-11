@@ -126,6 +126,10 @@ export default class GSelect extends GComponent {
 		_.shadow = this.attachShadow({mode: 'open'});
 		_.mainTpl = _.getTpl('select');
 		_.baseTitle = this.getAttribute('title');
+
+		let items = this.getAttribute('items');
+		console.log(items)
+		console.log(JSON.parse(items));
 		_.shadow.innerHTML = _.mainTpl({
 			items: JSON.parse(this.getAttribute('items')),
 			title: this.getAttribute('title'),

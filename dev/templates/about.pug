@@ -1,0 +1,64 @@
+extends template/main
+append vars
+	-
+		page_title = 'About'
+block content
+	main
+		section.services-desc
+			.section
+				h2.block-title
+					span ABOUT
+				p.text
+					| Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups.
+					br
+					br
+					| Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups.
+		section.services-desc.block
+			.section
+				h2.block-title
+					span our story
+				p.text
+					| Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups.
+					br
+					br
+					| Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups.
+				button.button
+					span come together
+		section.block
+			.section
+				h2.block-title
+					span Awards
+				ul.awards-list
+					li.awards-item
+						+img('awards-1.png')
+					li.awards-item
+						+img('awards-2.svg')
+					li.awards-item
+						+img('awards-3.png')
+					li.awards-item
+						+img('awards-2.svg')
+					li.awards-item
+						+img('awards-3.png')
+					li.awards-item
+						+img('awards-1.png')
+					li.awards-item
+						+img('awards-3.png')
+					li.awards-item
+						+img('awards-1.png')
+					li.awards-item
+						+img('awards-2.svg')
+		section.block
+			.section
+				h2.block-title
+					span Team
+				ul.team-list
+					-for (let i = 1; i < 9; i++)
+						li.team-item
+							.team-photo.circle-photo
+								+img(`team-photo-${i}.jpg`)
+							h5.block-subtitle
+								span George Orson Welles
+							.team-subtitle
+								span Subtitle with position
+							p.text Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+		include parts/contact-form-last

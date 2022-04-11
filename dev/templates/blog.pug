@@ -1,0 +1,99 @@
+extends template/main
+append vars
+	-
+		page_title = 'Blog'
+block content
+	main
+		section.block-first.blog
+			.section
+				h2.block-title
+					span BLOG
+				.blog-filter
+					button.blog-filter-btn.active
+						span Flows
+					button.blog-filter-btn
+						span news
+					button.blog-filter-btn
+						span article
+					button.blog-filter-btn
+						span digest
+					button.blog-filter-btn.blog-search-btn(data-click='showBlogSearch')
+						svg
+							use(xlink:href='img/sprite.svg#search')
+						span Search
+					.search
+						form.search-header
+							input(type='text' placeholder='Search query |').search-header-input
+							button(type='button' data-click='cancelBlogSearch').search-header-cancel
+								svg
+									use(xlink:href=	'img/sprite.svg#close')
+						.search-result
+							ul.search-result-list
+								-for (let i = 0; i < 10; i++)
+									li.search-result-item
+										a(href='#').search-result-link Lorem ipsum dolor
+									li.search-result-item
+										a(href='#').search-result-link Lorem ipsum dolor sit amet, consectetur adipiscing elit
+			.section
+				ul.blog-list
+					-let i = 0;
+					each value in ['news','article','digest','article','article','news','news','news','article']
+						-i++
+						li.blog-item
+							a(href='#')
+								.blog-preview
+									+img(`blog-${i}.jpg`)
+									.blog-theme
+										span #{value}
+								h5.block-subtitle
+									span Headings with thread theme, in other words — lorem ipsum
+								p.text #[strong Lorem ipsum] is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is...
+								.blog-date 03.10.2021
+				button.button
+					span Load more
+		section.block
+			.section
+				h2.block-title
+					span Continue Reading
+				ul.blog-single-list
+					li.blog-single-item
+						a(href='#').blog-single-item-link
+							.blog-preview
+								+img('blog-1.jpg')
+								.blog-theme
+									span article
+							.blog-single-info
+								h5.block-subtitle
+									span Headings with thread theme, in other words — lorem ipsum
+								p.text #[strong Lorem ipsum] is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is...
+								.blog-date 03.10.2021
+		section.block
+			.section
+				h2.block-title
+					span will be interested
+				ul.blog-single-list
+					-i = 2;
+					each value in ['news','article','digest']
+						-i++
+						li.blog-single-item
+							a(href='#').blog-single-item-link
+								.blog-preview
+									+img(`blog-${i}.jpg`)
+									.blog-theme
+										span article
+								.blog-single-info
+									h5.block-subtitle
+										span Headings with thread theme, in other words — lorem ipsum
+									p.text #[strong Lorem ipsum] is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is...
+									.blog-date 03.10.2021
+		include parts/contact-form-last
+
+
+
+
+
+
+
+
+
+
