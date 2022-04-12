@@ -60,6 +60,12 @@
 					fill: rgb($blue)
 
 
+.dot
+	@extend %trd
+	&:hover
+		background-color: rgb($white)
+
+
 .main-slider
 	.title
 		font-size: calc(48em/14)
@@ -70,10 +76,6 @@
 		&-dots
 			bottom: 111px
 			left: 306px
-		.dot
-			@extend %trd
-			&:hover
-				background-color: rgb($white)
 		&-button
 			display: block
 		&-prev
@@ -104,6 +106,10 @@
 			@extend %trd
 			&:hover
 				color: rgb($blue)
+
+
+.map
+	height: 648px
 
 
 .send
@@ -138,7 +144,7 @@
 
 
 .foot
-	&-privacy,&-nav-link
+	&-privacy
 		position: relative
 		&:after
 			@extend %trd
@@ -146,16 +152,15 @@
 			+wh(0,2px)
 			background-color: rgb($white)
 			position: absolute
-			left: 50%
+			left: 0
 			bottom: -2px
 		&:hover
 			&:after
 				width: 100%
-				left: 0
 	&-nav-link
-		&:after
-			background-color: rgba($gray,.4)
-
+		@extend %trd
+		&:hover
+			color: rgb($gray)
 
 
 .tabs
@@ -196,6 +201,16 @@
 			@extend %trd
 			&:hover
 				color: rgb($blue)
+	a.block-subtitle,button.block-subtitle
+		@extend %trd
+		&:hover
+			color: rgb($blue)
+	&-link
+		.block-subtitle
+			@extend %trd
+		&:hover
+			.block-subtitle
+					color: rgb($blue)
 
 
 .search
@@ -207,8 +222,20 @@
 			&:hover
 				transform: rotate(180deg)
 	&-result
-		&-item
+		padding: 20px
+		&-link
 			@extend %trd
 			border-radius: 4px
 			&:hover
 				background-color: rgba($gray,.1)
+
+
+.socials
+	&-img svg
+		@extend %trd
+	&-link
+		&:hover
+			.socials
+				&-img
+					svg
+						fill: rgb($blue)

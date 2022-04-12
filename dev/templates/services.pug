@@ -4,7 +4,7 @@ append vars
 		page_title = 'Services'
 block content
 	main
-		section.services-desc
+		section.desc.block-first
 			.section
 				h2.block-title
 					span Services
@@ -13,7 +13,7 @@ block content
 					br
 					br
 					| Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups.
-				button.button
+				a(href='#contact').button
 					span Let's start
 		include parts/tabs
 		section.block.small.audience-services
@@ -30,7 +30,7 @@ block content
 									h5.block-title-small
 										span #{value}
 									p.text Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups.
-									a(href='#').small-link.send
+									a(href='#contact').small-link.send
 										span this is us
 										svg
 											use(xlink:href='img/sprite.svg#send-arrow')

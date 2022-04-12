@@ -26,6 +26,7 @@ class Front extends G_G{
 			.on('arrowClick',_.arrowClick.bind(_))
 			.on('showBlogSearch',_.showBlogSearch.bind(_))
 			.on('cancelBlogSearch',_.cancelBlogSearch.bind(_))
+			.on('bodyClick',_.bodyClick.bind(_))
 	}
 	showNote(){
 		G_Bus.trigger('showModal',{
@@ -37,6 +38,15 @@ class Front extends G_G{
 		const _ = this;
 		let inpt  = _.f(clickData['item'].getAttribute('data-target'));
 		inpt.doValidate();
+	}
+
+	bodyClick(clickData){
+		const _ = this;
+		let event = clickData.event,
+			target = event.target;
+		if (!target.closest('.search')) {
+			_.cancelBlogSearch();
+		}
 	}
 
 	burger(clickData){
@@ -57,6 +67,7 @@ class Front extends G_G{
 		const _ = this;
 		let searchBlock = _.f('.search');
 		let searchButton = _.f('.blog-search-btn');
+		if (!searchButton) return;
 		searchButton.classList.remove('active');
 		searchBlock.classList.remove('active');
 		searchBlock.querySelector('INPUT').value = '';

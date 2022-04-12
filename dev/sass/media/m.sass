@@ -1,5 +1,9 @@
 %bdrs
 	border-radius: 4px
+%bs
+	box-shadow: 0 4px 18px 4px rgba(0, 0, 0, 0.04)
+html
+	scroll-behavior: smooth
 .section
 	+w($mobile)
 	margin: auto
@@ -110,16 +114,17 @@ main
 		background: linear-gradient(81.36deg, #F2F2FF 0%, rgba(249, 249, 255, 0) 100%), linear-gradient(180deg, rgba(70, 132, 226, 0.02), rgba(70, 132, 226, 0.02)), #FFFFFF
 	&,&-reverce
 		border-radius: 40px
-		box-shadow: 0 4px 18px 4px rgba(0, 0, 0, 0.04)
+		@extend %bs
 
 
 .button
 	min-width: 147px
 	padding: 8px 26px 6px
+	display: inline-block
 	border: 2px solid rgb($blue)
 	border-radius: 40px
-
 	font-family: $f_bold
+	text-align: center
 	color: rgb($blue)
 	text-transform: uppercase
 	line-height: 2em
@@ -218,10 +223,9 @@ main
 	&,&-first
 		.block-title
 			margin-bottom: 30px
-	&-title
-		font-size: calc(22em / 14)
 	&-title,&-title-small
 		font-family: $f_bold
+	&-title,&-title-small,&-subtitle
 		text-transform: uppercase
 	&-title-small
 		font-size: calc(18em / 14)
@@ -229,13 +233,16 @@ main
 		@extend %df
 		@extend %dfa
 		font-family: $v_bold
-		text-transform: uppercase
+		letter-spacing: -.02em
 		&.blue
 			color: rgb($blue)
 		&-svg
-			+wh(18px)
+			+wh(20px,18px)
+			margin-top: -2px
 			margin-right: 10px
 			stroke: rgb($blue)
+	&-title
+		font-size: calc(22em / 14)
 
 
 .services
@@ -243,7 +250,7 @@ main
 		margin-bottom: 30px
 		padding: 30px
 		border-radius: 40px
-		box-shadow: 0 4px 18px 4px rgba(0, 0, 0, 0.04)
+		@extend %bs
 		background-color: rgb($white)
 		&:last-child
 			margin-bottom: 0
@@ -261,14 +268,16 @@ main
 	.button
 		margin: 0 auto
 		display: block
-	&-desc
-		.block-title
-			margin-bottom: 30px
-		.text
-			margin-bottom: 10px
-			text-indent: 1.5em
-		.button
-			margin-top: 20px
+
+
+.desc
+	.block-title
+		margin-bottom: 30px
+	.text
+		margin-bottom: 10px
+		text-indent: 1.5em
+	.button
+		margin-top: 20px
 
 
 .audience
@@ -336,6 +345,13 @@ main
 			+wh(8px)
 			margin-left: 10px
 			stroke: rgb($blue)
+	&-item
+		@extend %df
+		@extend %dfa
+		@extend %fdc
+		margin-top: 50px
+		&-subtitle
+			font-family: $v_reg
 
 
 .features
@@ -348,18 +364,20 @@ main
 		margin-top: 30px
 		padding: 0 20px 20px
 		background-color: rgb($white)
-		box-shadow: 0 4px 18px 4px rgba(0, 0, 0, 0.04)
+		@extend %bs
 	&-icon
 		transform: translateY(-10px )
 	.text
 		width: 100%
+
+
 .guarant
 	&-icon
 		@extend %dfc
 		@extend %bdrs
 		+wh(60px)
 		background-color: rgb($white)
-		box-shadow: 0 4px 18px 4px rgba(0, 0, 0, 0.04)
+		@extend %bs
 		svg
 			+wh(24px)
 			stroke: rgb($blue)
@@ -387,7 +405,7 @@ main
 		margin-right: 18px
 		overflow: hidden
 		background-color: rgb($gray)
-		box-shadow: 0 4px 18px 4px rgba(0, 0, 0, 0.04)
+		@extend %bs
 		position: relative
 		&:last-child
 			margin-right: 0
@@ -684,13 +702,14 @@ main
 			font-family: $v_bold
 			color: rgba($gray,.4)
 			text-transform: uppercase
+			&:last-child
+				margin-right: 0
 			&.active
 				color: rgb($blue)
 	&-search
 		&-btn
 			@extend %df
 			@extend %dfa
-			margin-right: 0
 			color: rgb($gray)
 			svg
 				+wh(16px)
@@ -722,7 +741,7 @@ main
 	&-preview
 		@extend %bdrs
 		height: 168px
-		box-shadow: 0 4px 18px 4px rgba(0, 0, 0, 0.04)
+		@extend %bs
 		overflow: hidden
 		position: relative
 		img
@@ -735,13 +754,17 @@ main
 		margin: 0 auto
 		display: block
 
+
 .search
 	@extend %tr
 	width: 100%
 	max-width: 774px
+	margin: 0 auto
 	position: absolute
 	top: 100%
 	z-index: 10
+	left: 0
+	right: 0
 	opacity: 0
 	visibility: hidden
 	&.active
@@ -750,27 +773,85 @@ main
 	&-header
 		@extend %df
 		@extend %dfa
+		@extend %bdrs
+		box-shadow: 0 4px 20px 2px rgba(0, 0, 0, 0.24)
+		background-color: rgb($white)
 		svg
 			+wh(14px)
 			stroke: rgb($gray)
 		&-input
-			@extend %bdrs
 			width: 100%
 			padding: 27px 45px 27px 29px
-			box-shadow: 0 4px 20px 2px rgba(0, 0, 0, 0.24)
-			background-color: rgb($white)
 		&-cancel
 			position: absolute
 			right: 30px
 	&-result
 		@extend %bdrs
-		margin-top: 20px
+		margin-top: 10px
 		padding: 20px 29px
 		background-color: rgb($white)
 		box-shadow: 0 4px 20px 2px rgba(0, 0, 0, 0.24)
 		&-list
 			max-height: 324px
 			overflow: auto
-		&-item
-			margin-bottom: 7px
-			padding: 7px
+		&-link
+			width: 100%
+			padding: 10px 8px
+			line-height: 1
+			display: block
+
+
+.article
+	.section
+		max-width: 774px
+	&-date,&-img,&-subtitle,.text
+		margin-bottom: 10px
+	&-titles
+		@extend %dfi
+		padding-bottom: 30px
+		position: relative
+	&-date
+		font-family: $v_bold
+	&-img
+		@extend %bdrs
+		@extend %bs
+		width: 100%
+		overflow: hidden
+		position: relative
+		img
+			width: 100%
+
+
+.socials
+	@extend %df
+	@extend %dfa
+	&-item
+		margin-right: 40px
+		&:last-child
+			margin-right: 0
+	&-link
+		@extend %df
+		@extend %dfa
+		@extend %fdc
+	&-img
+		@extend %dfc
+		+wh(54px)
+		padding: 15px
+		border-radius: 100%
+		background-color: rgba($gray,.06)
+		svg
+			+wh(100%)
+			fill: rgb($gray)
+	&-text
+		margin-top: 3px
+		font-size: calc(12em / 14)
+		color: rgba($gray,.4)
+		font-family: $v_reg
+
+
+.map
+	+wh(100%,255px)
+	overflow: hidden
+	background-image: url('img/MAP.svg')
+	background-size: 170%
+	background-position: 50% center

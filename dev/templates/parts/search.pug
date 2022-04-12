@@ -1,0 +1,13 @@
+.search
+	form.search-header
+		input(type='text' placeholder='Search').search-header-input
+		button(type='button' data-click='cancelBlogSearch').search-header-cancel
+			svg
+				use(xlink:href=  'img/sprite.svg#close')
+	.search-result
+		ul.search-result-list
+			-for (let i = 0; i < 10; i++)
+				li.search-result-item
+					a(href='./blog-item.html').search-result-link Lorem ipsum dolor
+				li.search-result-item
+					a(href='./blog-item.html').search-result-link Lorem ipsum dolor sit amet, consectetur adipiscing elit

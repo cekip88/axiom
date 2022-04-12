@@ -1,0 +1,20 @@
+extends template/main
+append vars
+	-
+		page_title = 'Contact'
+block content
+	main
+		section.block-first
+			.section
+				h2.block-title
+					span CONTACT
+				.map
+				ul.contact-list
+					-for (let i = 0; i < 3; i++)
+						li.contact-item
+							h5.block-title-small
+								span New Jersey, USA
+							.contact-item-subtitle
+								span Headquarters
+							include parts/contact-info
+		include parts/contact-form-last

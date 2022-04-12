@@ -21,16 +21,16 @@ block content
 									svg.block-subtitle-svg
 										use(xlink:href='img/sprite.svg#code')
 									span.block-subtitle-text Web development
-								p.services-text Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups.
-								p.services-text Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups.
+								p.services-text.text Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups.
+								p.services-text.text Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups.
 							li.services-item
 								h5.block-subtitle
 									svg.block-subtitle-svg
 										use(xlink:href='img/sprite.svg#eyedropper')
 									span.block-subtitle-text Web  design
-								p.services-text Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups.
-								p.services-text Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups.
-						button.button
+								p.services-text.text Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups.
+								p.services-text.text Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups.
+						a(href='./services.html').button
 							span Learn More
 					.services-block
 						h3.block-title-small
@@ -50,37 +50,27 @@ block content
 									span.block-subtitle-text DATA MANAGEMENT
 								p.services-text.text Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups.
 								p.services-text.text Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups.
-						button.button
+						a(href='./services.html').button
 							span Learn More
 		section.block
 			.section
 				h2.block-title
 					span Audience description
 				.audience
-					.audience-block
-						span.audience-number 01
-						.line
-						p.audience-text SOME REASON TO WORK WITH US AND WHY WE DO IT BETTER THAN SOME ONE ELSE
-						button.button
-							span Contact Us
-					.audience-block
-						span.audience-number 02
-						.line
-						p.audience-text SOME REASON TO WORK WITH US
-						button.button
-							span Contact Us
-					.audience-block
-						span.audience-number 03
-						.line
-						p.audience-text SOME REASON TO WORK WITH US AND WHY WE DO IT BETTER THAN SOME ONE ELSE
-						button.button
-							span Contact Us
-					.audience-block
-						span.audience-number 04
-						.line
-						p.audience-text SOME REASON TO WORK WITH US
-						button.button
-							span Contact Us
+					-for(let i = 0; i < 3; i++)
+						.audience-block
+							span.audience-number 0#{i + 1}
+							.line
+							p.audience-text SOME REASON TO WORK WITH US AND WHY WE DO IT BETTER THAN SOME ONE ELSE
+							a(href='#contact').button
+								span Contact Us
+						.audience-block
+							span.audience-number 0#{i + 2}
+							.line
+							p.audience-text SOME REASON TO WORK WITH US
+							a(href='#contact').button
+								span Contact Us
+						-i++
 		include parts/contact-form
 		section.block
 			.section
@@ -94,7 +84,7 @@ block content
 									use(xlink:href='img/sprite.svg#convenience')
 							h5.block-subtitle Convenience
 							p.text Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups.
-					button.button
+					a(href='#contact').button
 						span Let's check
 		include parts/clients-slider
 		section.block.who
@@ -139,7 +129,7 @@ block content
 							span How we work
 						.line
 						p.text Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing.
-				button.button
+				a(href='./about.html').button
 					span About
 		include parts/contact-form-last
 

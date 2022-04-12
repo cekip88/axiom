@@ -1,0 +1,35 @@
+section.block
+	.section
+		h2.block-title
+			span Continue Reading
+		ul.blog-single-list
+			li.blog-single-item
+				a(href='./blog-item.html').blog-single-item-link.blog-link
+					.blog-preview
+						+img('blog-1.jpg')
+						.blog-theme
+							span article
+					.blog-single-info
+						h5.block-subtitle
+							span Headings with thread theme, in other words — lorem ipsum
+						p.text #[strong Lorem ipsum] is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is...
+						.blog-date 03.10.2021
+section.block
+	.section
+		h2.block-title
+			span will be interested
+		ul.blog-single-list
+			-i = 2;
+			each value in ['news','article','digest']
+				-i++
+				li.blog-single-item
+					a(href='./blog-item.html').blog-single-item-link.blog-link
+						.blog-preview
+							+img(`blog-${i}.jpg`)
+							.blog-theme
+								span article
+						.blog-single-info
+							h5.block-subtitle
+								span Headings with thread theme, in other words — lorem ipsum
+							p.text #[strong Lorem ipsum] is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is placeholder text commonly used in the graphic for previewing layouts and visual mockups. Lorem ipsum is...
+							.blog-date 03.10.2021
